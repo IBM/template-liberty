@@ -95,8 +95,6 @@ spec:
       securityContext:
         privileged: true
       envFrom:
-        - configMapRef:
-            name: ibmcloud-config
         - secretRef:
             name: ibmcloud-apikey
       env:
@@ -131,8 +129,6 @@ spec:
       command: ["/bin/bash"]
       workingDir: ${workingDir}
       envFrom:
-        - configMapRef:
-            name: ibmcloud-config
         - secretRef:
             name: ibmcloud-apikey
         - configMapRef:
