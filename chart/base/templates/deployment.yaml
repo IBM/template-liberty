@@ -50,13 +50,10 @@ spec:
             httpGet:
               path: /
               port: http
-              initialDelaySeconds: 1500
-              timeoutSeconds: 500
           readinessProbe:
             httpGet:
               path: /
               port: http
-              initialDelaySeconds: 15
           env:
             - name: INGRESS_HOST
               value: ""

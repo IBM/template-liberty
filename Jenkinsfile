@@ -1,4 +1,4 @@
-def pipelineVersion='1.1.4'
+def pipelineVersion='1.1.5'
 println "Pipeline version: ${pipelineVersion}"
 /*
  * This is a vanilla Jenkins pipeline that relies on the Jenkins kubernetes plugin to dynamically provision agents for
@@ -95,6 +95,8 @@ spec:
       securityContext:
         privileged: true
       envFrom:
+        - configMapRef:
+            name: ibmcloud-config
         - secretRef:
             name: ibmcloud-apikey
       env:
@@ -129,6 +131,8 @@ spec:
       command: ["/bin/bash"]
       workingDir: ${workingDir}
       envFrom:
+        - configMapRef:
+            name: ibmcloud-config
         - secretRef:
             name: ibmcloud-apikey
         - configMapRef:
@@ -216,6 +220,7 @@ spec:
                 else 
                     echo "Skipping Sonar Qube step"
                 fi
+
                 '''
             }
         }
@@ -233,6 +238,9 @@ spec:
 
                     git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USER; echo password=\\$GIT_AUTH_PWD; }; f"
 
+                    git checkout -b ${BRANCH} --track origin/${BRANCH}
+                    git branch --set-upstream-to=origin/${BRANCH} ${BRANCH}
+
                     git fetch
                     git fetch --tags
                     git tag -l
@@ -241,9 +249,6 @@ spec:
                     git checkout -b ${BRANCH} --track origin/${BRANCH}
                     git branch --set-upstream-to=origin/${BRANCH} ${BRANCH}
                     git reset --hard ${COMMIT_HASH}
-
-                    git config --global user.name "Jenkins Pipeline"
-                    git config --global user.email "jenkins@ibmcloud.com"
 
                     if [[ "${BRANCH}" == "master" ]] && [[ $(git describe --tag `git rev-parse HEAD`) =~ (^[0-9]+.[0-9]+.[0-9]+$) ]] || \
                        [[ $(git describe --tag `git rev-parse HEAD`) =~ (^[0-9]+.[0-9]+.[0-9]+-${BRANCH}[.][0-9]+$) ]]
@@ -287,8 +292,8 @@ spec:
                     set -e
                     . ./env-config
 
-                    echo TLSVERIFY=${TLSVERIFY}
-                    echo CONTEXT=${CONTEXT}
+		            echo TLSVERIFY=${TLSVERIFY}
+		            echo CONTEXT=${CONTEXT}
 
                     APP_IMAGE="${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}"
 
@@ -467,8 +472,6 @@ spec:
                     git config --global user.name "Jenkins Pipeline"
 
                     GIT_URL="https://${username}:${password}@${host}/${org}/${repo}"
-
-                    echo "Cloning repo: https://${username}:xxxx@${host}/${org}/${repo}"
 
                     git clone -b ${branch} ${GIT_URL} gitops_cd
                     cd gitops_cd
