@@ -119,6 +119,10 @@ ibmcloud dev build --debug
 ibmcloud dev debug
 ```
 
+## More Details
+For more details on how to use this Starter Kit Template please review the [IBM Garage for Cloud Cloud-Native Toolkit Guide](https://cloudnativetoolkit.dev/)
+
+
 ## Next Steps
 * Learn more about [Open Liberty](https://openliberty.io/).
 * Learn more about augmenting your Java applications on IBM Cloud with the [Java Programming Guide](https://cloud.ibm.com/docs/java?topic=java-getting-started).
