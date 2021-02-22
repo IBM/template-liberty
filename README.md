@@ -50,18 +50,6 @@ igc pipeline -n dev --tekton --pipeline ibm-appmod-liberty
 ```
 See the **Deploy an app** guide in the [IBM Cloud-Native toolkit](https://cloudnativetoolkit.dev/) for details.
 
-### Deploying to IBM Cloud
-
-<p align="center">
-    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app">
-    <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
-    </a>
-</p>
-
-Click **Deploy to IBM Cloud** to deploy this same application to IBM Cloud. This option creates a deployment pipeline, complete with a hosted GitLab project and a DevOps toolchain. You can deploy your app to Cloud Foundry, a Kubernetes cluster, or a Red Hat OpenShift cluster. OpenShift is available only through a standard cluster, which requires you to have a billable account.
-
-[IBM Cloud DevOps](https://www.ibm.com/cloud/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud.
-
 ### Building Locally
 
 To get started building this application locally, you can either run the application natively or use the [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) for containerization and easy deployment to IBM Cloud.
