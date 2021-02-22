@@ -4,7 +4,7 @@
 global: {}
 
 replicaCount: 1
-logLevel: "trace"
+logLevel: "debug"
 
 image:
   repository: replace
@@ -35,6 +35,9 @@ ingress:
   path: "/"
 
 #  tlsSecretName: ""
+
+serviceAccount:
+  create: false
 
 vcsInfo:
   repoUrl: ""
