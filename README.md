@@ -15,11 +15,11 @@
 </p>
 
 
-# Create and deploy a Java - MicroProfile / Java EE application
+# Create and deploy a Java - MicroProfile / Jakarta EE application
 
 > We have applications available for [Node.js Express](https://github.com/IBM/node-express-app), [Go Gin](https://github.com/IBM/go-gin-app), [Python Flask](https://github.com/IBM/python-flask-app), [Python Django](https://github.com/IBM/python-django-app), [Java Spring](https://github.com/IBM/java-spring-app), [Java Liberty](https://github.com/IBM/java-liberty-app), [Swift Kitura](https://github.com/IBM/swift-kitura-app), [Android](https://github.com/IBM/android-app), and [iOS](https://github.com/IBM/ios-app).
 
-In this sample application, you will create a Java Liberty cloud application. This provides a starting point for creating Java web applications running on [Open Liberty](https://openliberty.io/). It contains no default application code, but comes with standard best practices, including a health check.
+In this sample application, you will create a Java cloud-native application using Liberty. This provides a starting point for creating Java web applications running on [Open Liberty](https://openliberty.io/). It contains no default application code, but comes with standard best practices, including a health check.
 
 This application exposes the following endpoints:
 
