@@ -33,6 +33,22 @@ The web application has a health endpoint which is accessible at `<host>:<port>/
 
 You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
+### Deploying 
+After you have created a new git repo from this git template, remember to rename the project. Edit the pom.xml and change the artifactId from the default name to the name you used to create the template.
+
+Make sure you are logged into the IBM Cloud using the IBM Cloud CLI and have access to you development cluster. If you are using OpenShift make sure you have logged into the OpenShift CLI on the command line.
+
+Install the IBM Garage for Cloud CLI.
+
+```$bash
+npm i -g @ibmgaragecloud/cloud-native-toolkit-cli
+```
+Use the IBM Garage for Cloud CLI to register the GIT Repo
+```$bash
+igc pipeline -n dev --tekton --pipeline ibm-appmod-liberty
+```
+See the **Deploy an app** guide in the [IBM Cloud-Native toolkit](https://cloudnativetoolkit.dev/) for details.
+
 ### Deploying to IBM Cloud
 
 <p align="center">
