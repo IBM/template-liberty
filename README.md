@@ -119,6 +119,7 @@ ibmcloud dev debug
 ```
 
 ## Next Steps
+* Learn more about [Open Liberty](https://openliberty.io/).
 * Learn more about augmenting your Java applications on IBM Cloud with the [Java Programming Guide](https://cloud.ibm.com/docs/java?topic=java-getting-started).
 * Explore other [sample applications](https://cloud.ibm.com/developer/appservice/starter-kits) on IBM Cloud.
 
