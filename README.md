@@ -27,6 +27,7 @@ This application exposes the following endpoints:
 * Web content: `<host>:<port>/<contextRoot>`
 * Web Application: `<host>:<port>/v1/example`
 * Swagger UI: `<host>:<port>/openapi/ui`
+* Openapi Document: `<host>:<port>/openapi`
 
 The web application has a health endpoint which is accessible at `<host>:<port>/health`. The ports are set in the `pom.xml` file.
 
