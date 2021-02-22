@@ -83,42 +83,6 @@ To run an application in Docker use the Docker file called `Dockerfile`. If you 
 
 You can verify the state of your locally running application using the Selenium UI test script included in the `scripts` directory.
 
-#### IBM Cloud Developer Tools
-
-Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) on your machine by running the following command:
-```
-curl -sL https://ibm.biz/idt-installer | bash
-```
-
-Create an application on IBM Cloud by running:
-
-```bash
-ibmcloud dev create
-```
-
-This will create and download a starter application with the necessary files needed for local development and deployment.
-
-Your application will be compiled with Docker containers. To compile and run your app, run:
-
-```bash
-ibmcloud dev build
-ibmcloud dev run
-```
-
-This will launch your application locally. When you are ready to deploy to IBM Cloud on Cloud Foundry or Kubernetes, run one of the following commands:
-
-```bash
-ibmcloud dev deploy -t buildpack // to Cloud Foundry
-ibmcloud dev deploy -t container // to K8s cluster
-```
-
-You can build and debug your app locally with:
-
-```bash
-ibmcloud dev build --debug
-ibmcloud dev debug
-```
-
 ## More Details
 For more details on how to use this Starter Kit Template please review the [IBM Garage for Cloud Cloud-Native Toolkit Guide](https://cloudnativetoolkit.dev/)
 
