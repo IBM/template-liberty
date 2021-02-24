@@ -26,6 +26,8 @@ This application exposes the following endpoints:
 * Health endpoint: `<host>:<port>/health`
 * Web content: `<host>:<port>/<contextRoot>`
 * Web Application: `<host>:<port>/v1/example`
+* Swagger UI: `<host>:<port>/openapi/ui`
+* Openapi Document: `<host>:<port>/openapi`
 
 The web application has a health endpoint which is accessible at `<host>:<port>/health`. The ports are set in the `pom.xml` file.
 
@@ -33,17 +35,25 @@ The web application has a health endpoint which is accessible at `<host>:<port>/
 
 You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
-### Deploying to IBM Cloud
+### Deploying 
+After you have created a new git repo from this git template, remember to rename the project. Edit the `pom.xml` and change the artifactId from the default name to the name you used to create the template.
 
-<p align="center">
-    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app">
-    <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
-    </a>
-</p>
+Make sure you are logged into IBM Cloud using the IBM Cloud CLI and have access to your development cluster. If you are using OpenShift make sure you have logged into the OpenShift CLI on the command line.
 
-Click **Deploy to IBM Cloud** to deploy this same application to IBM Cloud. This option creates a deployment pipeline, complete with a hosted GitLab project and a DevOps toolchain. You can deploy your app to Cloud Foundry, a Kubernetes cluster, or a Red Hat OpenShift cluster. OpenShift is available only through a standard cluster, which requires you to have a billable account.
+Install the IBM Garage for Cloud CLI.
 
-[IBM Cloud DevOps](https://www.ibm.com/cloud/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud.
+```$bash
+curl -sfL get.cloudnativetoolkit.dev | sh -
+```
+Use the IBM Garage for Cloud CLI to create the dev namespace
+```$bash
+igc namespace dev --dev
+```
+Use the IBM Garage for Cloud CLI to register the GIT Repo
+```$bash
+igc pipeline -n dev --tekton --pipeline ibm-appmod-liberty
+```
+See the **Deploy an app** guide under **Day 1 - Build and deploy** in the [IBM Cloud-Native toolkit](https://cloudnativetoolkit.dev/) for details.
 
 ### Building Locally
 
@@ -66,43 +76,12 @@ To run an application in Docker use the Docker file called `Dockerfile`. If you 
 
 You can verify the state of your locally running application using the Selenium UI test script included in the `scripts` directory.
 
-#### IBM Cloud Developer Tools
+## More Details
+For more details on how to use this Starter Kit Template please review the [IBM Garage for Cloud Cloud-Native Toolkit Guide](https://cloudnativetoolkit.dev/)
 
-Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) on your machine by running the following command:
-```
-curl -sL https://ibm.biz/idt-installer | bash
-```
-
-Create an application on IBM Cloud by running:
-
-```bash
-ibmcloud dev create
-```
-
-This will create and download a starter application with the necessary files needed for local development and deployment.
-
-Your application will be compiled with Docker containers. To compile and run your app, run:
-
-```bash
-ibmcloud dev build
-ibmcloud dev run
-```
-
-This will launch your application locally. When you are ready to deploy to IBM Cloud on Cloud Foundry or Kubernetes, run one of the following commands:
-
-```bash
-ibmcloud dev deploy -t buildpack // to Cloud Foundry
-ibmcloud dev deploy -t container // to K8s cluster
-```
-
-You can build and debug your app locally with:
-
-```bash
-ibmcloud dev build --debug
-ibmcloud dev debug
-```
 
 ## Next Steps
+* Learn more about [Open Liberty](https://openliberty.io/).
 * Learn more about augmenting your Java applications on IBM Cloud with the [Java Programming Guide](https://cloud.ibm.com/docs/java?topic=java-getting-started).
 * Explore other [sample applications](https://cloud.ibm.com/developer/appservice/starter-kits) on IBM Cloud.
 
