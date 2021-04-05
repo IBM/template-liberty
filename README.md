@@ -1,17 +1,11 @@
 <p align="center">
-    <a href="https://cloud.ibm.com">
-        <img src="https://cloud.ibm.com/media/docs/developer-appservice/resources/ibm-cloud.svg" height="100" alt="IBM Cloud">
+    <a href="https://cloudnativetoolkit.dev">
+        <img src="https://cloudnativetoolkit.dev/static/catalyst-0819c47b678df4dd3790a4e78bf73608.svg" height="100" alt="Cloud-native Toolkit">
     </a>
 </p>
 
 <p align="center">
-    <a href="https://cloud.ibm.com">
-    <img src="https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg" alt="IBM Cloud">
-    </a>
-    <a href="https://www.ibm.com/developerworks/learn/java/">
-    <img src="https://img.shields.io/badge/platform-java-lightgrey.svg?style=flat" alt="platform">
-    </a>
-    <img src="https://img.shields.io/badge/license-Apache2-blue.svg?style=flat" alt="Apache 2">
+This template can be used as a starter kit for the <a href="https://cloudnativetoolkit.dev">Cloud-native toolkit</a>
 </p>
 
 
