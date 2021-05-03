@@ -1,6 +1,7 @@
 # Package the application as a war file
 FROM maven:3.6.3-ibmjava-8-alpine AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
+WORKDIR /
 COPY pom.xml ./
 COPY src src/
 RUN mvn clean package
