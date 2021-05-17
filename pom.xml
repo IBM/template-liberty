@@ -36,13 +36,13 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.1</version>
+            <version>5.7.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-client</artifactId>
-            <version>3.4.2</version>
+            <version>3.4.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
